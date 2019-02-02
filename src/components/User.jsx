@@ -2,8 +2,7 @@ import React from 'react';
 
 const User = () => (
   <div>
-    <p>First name</p>
-    <p>Last name</p>
+    <p>username</p>
   </div>
 );
 

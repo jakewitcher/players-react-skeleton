@@ -2,7 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 
 import Header from '../components/Header';
-import Dashboard from '../containers/DashboardPage';
+import RosterPage from '../containers/RosterPage';
 import HomePage from '../containers/HomePage';
 import LoginPage from '../containers/LoginPage';
 import PlayerPage from '../containers/PlayerPage';
@@ -16,7 +16,7 @@ const AppRouter = () => (
       <HomePage path="/" />
       <RegisterPage path="register" />
       <LoginPage path="login" />
-      <Dashboard path="roster" />
+      <RosterPage path="roster" />
       <PlayerPage path="player/new" />
       <NotFoundPage default />
     </Router>

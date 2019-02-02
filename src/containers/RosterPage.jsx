@@ -4,13 +4,13 @@ import Button from '../components/Button';
 import Roster from '../components/Roster';
 import User from '../components/User';
 
-const DashboardPage = () => (
+const RosterPage = () => (
   <div>
-    <h1>Dashboard page</h1>
+    <h1>Roster page</h1>
     <User />
     <Roster />
     <Button page="../player/new" />
   </div>
 );
 
-export default DashboardPage;
+export default RosterPage;

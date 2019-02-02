@@ -42,7 +42,7 @@ class RegisterForm extends Component {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(response => {
-        console.log(response);
+        sessionStorage.setItem('token', JSON.parse(response).token);
         this.setState({
           firstName: '',
           lastName: '',

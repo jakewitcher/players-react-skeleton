@@ -36,7 +36,7 @@ class LoginForm extends Component {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(response => {
-        console.log(response);
+        sessionStorage.setItem('token', response.data.token);
         this.setState({
           email: '',
           password: '',

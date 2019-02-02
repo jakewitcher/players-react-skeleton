@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Player = props => {
-  const { name } = props;
+  const { firstName, lastName, rating, handedness } = props;
   return (
     <div>
-      <p>{name}</p>
+      <p>{`${firstName} ${lastName}`}</p>
+      <p>{`Rating: ${rating}`}</p>
+      <p>{`${handedness} handed`}</p>
     </div>
   );
 };
@@ -13,9 +15,15 @@ const Player = props => {
 export default Player;
 
 Player.propTypes = {
-  name: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  rating: PropTypes.number,
+  handedness: PropTypes.string,
 };
 
 Player.defaultProps = {
-  name: 'player name',
+  firstName: '',
+  lastName: '',
+  rating: 0,
+  handedness: '',
 };

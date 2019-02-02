@@ -2,10 +2,10 @@ import React from 'react';
 
 import PlayerForm from '../components/PlayerForm';
 
-const PlayerPage = () => (
+const PlayerPage = props => (
   <div>
     <h1>Player page</h1>
-    <PlayerForm />
+    <PlayerForm {...props} />
   </div>
 );
 
