@@ -2,10 +2,10 @@ import React from 'react';
 
 import RegisterForm from '../components/RegisterForm';
 
-const RegisterPage = () => (
+const RegisterPage = props => (
   <div>
     <h1>Register page</h1>
-    <RegisterForm />
+    <RegisterForm {...props} />
   </div>
 );
 
