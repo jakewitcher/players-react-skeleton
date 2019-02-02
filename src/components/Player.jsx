@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Player = props => {
-  const { firstName, lastName, rating, handedness } = props;
+  const {
+    firstName,
+    lastName,
+    rating,
+    handedness,
+  } = props;
   return (
     <div>
       <p>{`${firstName} ${lastName}`}</p>

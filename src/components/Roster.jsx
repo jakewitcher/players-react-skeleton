@@ -36,10 +36,10 @@ class Roster extends Component {
           roster.length === 0 ||
           roster.map(player =>
             (<Player
-              firstName={player.first_name} 
-              lastName={player.last_name} 
-              rating={player.rating} 
-              handedness={player.handedness} 
+              firstName={player.first_name}
+              lastName={player.last_name}
+              rating={player.rating}
+              handedness={player.handedness}
               key={player.name}
             />))
         }
