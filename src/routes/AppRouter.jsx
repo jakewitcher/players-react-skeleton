@@ -7,6 +7,7 @@ import HomePage from '../containers/HomePage';
 import LoginPage from '../containers/LoginPage';
 import PlayerPage from '../containers/PlayerPage';
 import RegisterPage from '../containers/RegisterPage';
+import NotFoundPage from '../containers/NotFoundPage';
 
 const AppRouter = () => (
   <div>
@@ -16,7 +17,8 @@ const AppRouter = () => (
       <RegisterPage path="register" />
       <LoginPage path="login" />
       <Dashboard path="roster" />
-      <PlayerPage path="roster/player/new" />
+      <PlayerPage path="player/new" />
+      <NotFoundPage default />
     </Router>
   </div>
 );

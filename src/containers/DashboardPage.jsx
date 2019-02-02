@@ -9,7 +9,7 @@ const DashboardPage = () => (
     <h1>Dashboard page</h1>
     <User />
     <Roster />
-    <Button page="player/new" />
+    <Button page="../player/new" />
   </div>
 );
 
