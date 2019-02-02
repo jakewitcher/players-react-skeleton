@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import 'whatwg-fetch';
 // Change me if you prefer sass,scss, less. (Note you may need to update the build config)
 import './index.css';
-import App from './components/App';
+import AppRouter from './routes/AppRouter';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<AppRouter />, document.getElementById('root'));
 
 // Hot Module Replacement
 if (module.hot) {
