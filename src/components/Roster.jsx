@@ -9,6 +9,7 @@ class Roster extends Component {
     super(props);
     this.state = {
       roster: [],
+      error: '',
     };
     this.handleDeletePlayer = this.handleDeletePlayer.bind(this);
   }
@@ -23,9 +24,16 @@ class Roster extends Component {
       .then(response => {
         this.setState({
           roster: response.data.players,
+          error: '',
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) {
+          this.setState({
+            error: 'We\'re having trouble gathering up your players. This is either a problem with our servers or your internet connection. Please try again later.',
+          });
+        }
+      });
   }
 
   handleDeletePlayer(id) {
@@ -44,17 +52,31 @@ class Roster extends Component {
           .then(response => {
             this.setState({
               roster: response.data.players,
+              error: '',
             });
           })
-          .catch(error => console.log(error));
+          .catch(error => {
+            if (error) {
+              this.setState({
+                error: 'We\'re having trouble gathering up your players. This is either a problem with our servers or your internet connection. Please try again later.',
+              });
+            }
+          });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) {
+          this.setState({
+            error: 'We\'re having trouble deleting your player. This is either a problem with our servers or your internet connection. Please try again later.',
+          });
+        }
+      });
   }
 
   render() {
     const { roster } = this.state;
     return (
       <div>
+        {!this.state.error || <p>{this.state.error}</p>}
         {
           roster.length === 0 ||
           roster.map(player =>

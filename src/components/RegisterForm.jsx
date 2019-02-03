@@ -52,10 +52,21 @@ class RegisterForm extends Component {
             email: '',
             password: '',
             confirmPassword: '',
+            error: '',
           });
           this.props.navigate('../roster');
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          if (error.response.data.error.message === 'Resource already exists.') {
+            this.setState({
+              error: 'I\'m sorry, this name already exists in our system. Please use a different first or last name',
+            });
+          } else {
+            this.setState({
+              error: 'We\'re having trouble creating your account. This is either a problem with our servers or your internet connection. Please try again later.',
+            });
+          }
+        });
     }
   }
 
@@ -81,6 +92,9 @@ class RegisterForm extends Component {
       });
       return false;
     }
+    this.setState({
+      error: '',
+    });
     return true;
   }
 
@@ -92,23 +106,23 @@ class RegisterForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="firstName">
             First Name
-            <input type="text" id="firstName" name="firstName" onChange={this.handleInput} placeholder="first name" />
+            <input type="text" id="firstName" value={this.state.firstName} name="firstName" onChange={this.handleInput} placeholder="first name" />
           </label>
           <label htmlFor="lastName">
             Last Name
-            <input type="text" id="lastName" name="lastName" onChange={this.handleInput} placeholder="last name" />
+            <input type="text" id="lastName" value={this.state.lastName} name="lastName" onChange={this.handleInput} placeholder="last name" />
           </label>
           <label htmlFor="email">
             Email
-            <input type="email" id="email" name="email" onChange={this.handleInput} placeholder="email" />
+            <input type="email" id="email" value={this.state.email} name="email" onChange={this.handleInput} placeholder="email" />
           </label>
           <label htmlFor="password">
             Password
-            <input type="password" id="password" name="password" onChange={this.handleInput} placeholder="password" />
+            <input type="password" id="password" value={this.state.password} name="password" onChange={this.handleInput} placeholder="password" />
           </label>
           <label htmlFor="confirmPassword">
             Confirm Password
-            <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleInput} placeholder="confirm password" />
+            <input type="password" id="confirmPassword" value={this.state.confirmPassword} name="confirmPassword" onChange={this.handleInput} placeholder="confirm password" />
           </label>
           <input type="submit" id="register" value="Submit" />
         </form>

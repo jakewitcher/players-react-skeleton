@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import url from '../utils/const';
+import { formatName } from '../utils/helpers';
 
 class PlayerForm extends Component {
   constructor(props) {
@@ -9,67 +10,105 @@ class PlayerForm extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      rating: 1000,
+      rating: null,
       handedness: 'Left',
+      error: '',
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleValidation = this.handleValidation.bind(this);
   }
 
   handleInput(event) {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    if (name === 'rating') {
+      if (!value || value.match(/^[0-9]\d*$/)) {
+        this.setState({
+          [name]: value,
+        });
+      }
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   }
 
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = JSON.stringify({
-      first_name: this.state.firstName,
-      last_name: this.state.lastName,
-      rating: this.state.rating,
-      handedness: this.state.handedness,
-    });
-    const token = sessionStorage.getItem('token');
-    axios({
-      method: 'post',
-      url: `${url}/players`,
-      data,
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    })
-      .then(() => {
-        this.setState({
-          firstName: '',
-          lastName: '',
-          handedness: 'Left',
-        });
-        this.props.navigate('../../roster');
+    if (this.handleValidation()) {
+      const data = JSON.stringify({
+        first_name: formatName(this.state.firstName),
+        last_name: formatName(this.state.lastName),
+        rating: parseInt(this.state.rating, 10),
+        handedness: this.state.handedness,
+      });
+      const token = sessionStorage.getItem('token');
+      axios({
+        method: 'post',
+        url: `${url}/players`,
+        data,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       })
-      .catch(error => console.log(error));
+        .then(() => {
+          this.setState({
+            firstName: '',
+            lastName: '',
+            handedness: 'Left',
+            error: '',
+          });
+          this.props.navigate('../../roster');
+        })
+        .catch(error => {
+          if (error) {
+            this.setState({
+              error: 'We\'re having trouble creating a new player. This is either a problem with our servers or your internet connection. Please try again later.',
+            });
+          }
+        });
+    }
+  }
+
+  handleValidation() {
+    if (!this.state.firstName || !this.state.lastName) {
+      this.setState({
+        error: 'Please enter both a first and last name',
+      });
+      return false;
+    } else if (!this.state.rating) {
+      this.setState({
+        error: 'Please enter a rating',
+      });
+      return false;
+    }
+    this.setState({
+      error: '',
+    });
+    return true;
   }
 
   render() {
     return (
       <div>
         <h2>Register form</h2>
+        {!this.state.error || <p>{this.state.error}</p>}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="firstName">
             First Name
-            <input type="text" id="firstName" name="firstName" onChange={this.handleInput} placeholder="first name" />
+            <input type="text" id="firstName" value={this.state.firstName} name="firstName" onChange={this.handleInput} placeholder="first name" />
           </label>
           <label htmlFor="lastName">
             Last Name
-            <input type="text" id="lastName" name="lastName" onChange={this.handleInput} placeholder="last name" />
+            <input type="text" id="lastName" value={this.state.lastName} name="lastName" onChange={this.handleInput} placeholder="last name" />
           </label>
           <label htmlFor="rating">
             Rating
-            <input type="number" id="rating" name="rating" onChange={this.handleInput} placeholder="rating" />
+            <input type="text" id="rating" value={this.state.rating} name="rating" onChange={this.handleInput} placeholder="rating" />
           </label>
           <label htmlFor="handedness">
             Handedness
-            <select id="handedness" name="handedness" onChange={this.handleInput}>
+            <select id="handedness" value={this.state.handedness} name="handedness" onChange={this.handleInput}>
               <option value="Left">Left</option>
               <option value="Right">Right</option>
             </select>
