@@ -7,7 +7,7 @@ const Player = props => {
     lastName,
     rating,
     handedness,
-    remove,
+    removePlayer,
     id,
   } = props;
   return (
@@ -17,7 +17,7 @@ const Player = props => {
         <li>{`Rating: ${rating}`}</li>
         <li>{`${handedness} handed`}</li>
       </ul>
-      <button className="delete" onClick={() => remove(id)}>Delete</button>
+      <button className="delete" onClick={() => removePlayer(id)}>Delete</button>
     </div>
   );
 };
@@ -30,7 +30,7 @@ Player.propTypes = {
   rating: PropTypes.number,
   handedness: PropTypes.string,
   id: PropTypes.string,
-  remove: PropTypes.func,
+  removePlayer: PropTypes.func,
 };
 
 Player.defaultProps = {
@@ -39,5 +39,5 @@ Player.defaultProps = {
   rating: 0,
   handedness: '',
   id: '',
-  remove: () => {},
+  removePlayer: () => {},
 };
