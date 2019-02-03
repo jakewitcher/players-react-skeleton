@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const url = 'https://players-api.developer.alchemy.codes/api/login';
+import url from '../utils/const';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class LoginForm extends Component {
     });
     axios({
       method: 'post',
-      url,
+      url: `${url}/login`,
       data,
       headers: { 'Content-Type': 'application/json' },
     })

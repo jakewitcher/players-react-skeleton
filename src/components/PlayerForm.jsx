@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
-const url = 'https://players-api.developer.alchemy.codes/api/players';
+import url from '../utils/const';
 
 class PlayerForm extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class PlayerForm extends Component {
     const token = sessionStorage.getItem('token');
     axios({
       method: 'post',
-      url,
+      url: `${url}/players`,
       data,
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     })

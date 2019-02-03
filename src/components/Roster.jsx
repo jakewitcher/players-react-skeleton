@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import url from '../utils/const';
 
 import Player from './Player';
-
-const url = 'https://players-api.developer.alchemy.codes/api/players';
 
 class Roster extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class Roster extends Component {
     const token = sessionStorage.getItem('token');
     axios({
       method: 'get',
-      url,
+      url: `${url}/players`,
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => {
@@ -33,13 +32,13 @@ class Roster extends Component {
     const token = sessionStorage.getItem('token');
     axios({
       method: 'delete',
-      url: `${url}/${id}`,
+      url: `${url}/players/${id}`,
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(() => {
         axios({
           method: 'get',
-          url,
+          url: `${url}/players`,
           headers: { Authorization: `Bearer ${token}` },
         })
           .then(response => {
