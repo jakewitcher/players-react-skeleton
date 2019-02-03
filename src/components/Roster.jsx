@@ -11,6 +11,7 @@ class Roster extends Component {
     this.state = {
       roster: [],
     };
+    this.handleDeletePlayer = this.handleDeletePlayer.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,29 @@ class Roster extends Component {
       .catch(error => console.log(error));
   }
 
+  handleDeletePlayer(id) {
+    const token = sessionStorage.getItem('token');
+    axios({
+      method: 'delete',
+      url: `${url}/${id}`,
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(() => {
+        axios({
+          method: 'get',
+          url,
+          headers: { Authorization: `Bearer ${token}` },
+        })
+          .then(response => {
+            this.setState({
+              roster: response.data.players,
+            });
+          })
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
     const { roster } = this.state;
     return (
@@ -40,7 +64,9 @@ class Roster extends Component {
               lastName={player.last_name}
               rating={player.rating}
               handedness={player.handedness}
-              key={player.name}
+              id={player.id}
+              remove={this.handleDeletePlayer}
+              key={player.id}
             />))
         }
       </div>

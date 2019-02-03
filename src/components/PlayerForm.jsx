@@ -11,7 +11,7 @@ class PlayerForm extends Component {
       firstName: '',
       lastName: '',
       rating: 1000,
-      handedness: 'left',
+      handedness: 'Left',
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +44,7 @@ class PlayerForm extends Component {
         this.setState({
           firstName: '',
           lastName: '',
-          handedness: 'right',
+          handedness: 'Left',
         });
         this.props.navigate('../../roster');
       })
@@ -57,18 +57,25 @@ class PlayerForm extends Component {
         <h2>Register form</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="firstName">
+            First Name
             <input type="text" id="firstName" name="firstName" onChange={this.handleInput} placeholder="first name" />
           </label>
           <label htmlFor="lastName">
+            Last Name
             <input type="text" id="lastName" name="lastName" onChange={this.handleInput} placeholder="last name" />
           </label>
+          <label htmlFor="rating">
+            Rating
+            <input type="number" id="rating" name="rating" onChange={this.handleInput} placeholder="rating" />
+          </label>
           <label htmlFor="handedness">
+            Handedness
             <select id="handedness" name="handedness" onChange={this.handleInput}>
-              <option value="left">left handed</option>
-              <option value="right">right handed</option>
+              <option value="Left">Left</option>
+              <option value="Right">Right</option>
             </select>
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" id="create" value="Submit" />
         </form>
       </div>
     );

@@ -7,12 +7,17 @@ const Player = props => {
     lastName,
     rating,
     handedness,
+    remove,
+    id,
   } = props;
   return (
     <div>
       <p>{`${firstName} ${lastName}`}</p>
-      <p>{`Rating: ${rating}`}</p>
-      <p>{`${handedness} handed`}</p>
+      <ul>
+        <li>{`Rating: ${rating}`}</li>
+        <li>{`${handedness} handed`}</li>
+      </ul>
+      <button className="delete" onClick={() => remove(id)}>Delete</button>
     </div>
   );
 };
@@ -24,6 +29,8 @@ Player.propTypes = {
   lastName: PropTypes.string,
   rating: PropTypes.number,
   handedness: PropTypes.string,
+  id: PropTypes.string,
+  remove: PropTypes.func,
 };
 
 Player.defaultProps = {
@@ -31,4 +38,6 @@ Player.defaultProps = {
   lastName: '',
   rating: 0,
   handedness: '',
+  id: '',
+  remove: () => {},
 };

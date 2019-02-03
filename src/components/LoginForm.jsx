@@ -52,12 +52,14 @@ class LoginForm extends Component {
         <h2>Register form</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">
+            Email
             <input type="email" id="email" name="email" onChange={this.handleInput} placeholder="email" />
           </label>
           <label htmlFor="password">
+            Password
             <input type="password" id="password" name="password" onChange={this.handleInput} placeholder="password" />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" id="login" value="Submit" />
         </form>
       </div>
     );

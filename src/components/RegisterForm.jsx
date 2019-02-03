@@ -42,7 +42,7 @@ class RegisterForm extends Component {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(response => {
-        sessionStorage.setItem('token', JSON.parse(response).token);
+        sessionStorage.setItem('token', response.data.token);
         this.setState({
           firstName: '',
           lastName: '',
@@ -61,21 +61,26 @@ class RegisterForm extends Component {
         <h2>Register form</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="firstName">
+            First Name
             <input type="text" id="firstName" name="firstName" onChange={this.handleInput} placeholder="first name" />
           </label>
           <label htmlFor="lastName">
+            Last Name
             <input type="text" id="lastName" name="lastName" onChange={this.handleInput} placeholder="last name" />
           </label>
           <label htmlFor="email">
+            Email
             <input type="email" id="email" name="email" onChange={this.handleInput} placeholder="email" />
           </label>
           <label htmlFor="password">
+            Password
             <input type="password" id="password" name="password" onChange={this.handleInput} placeholder="password" />
           </label>
           <label htmlFor="confirmPassword">
+            Confirm Password
             <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleInput} placeholder="confirm password" />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" id="register" value="Submit" />
         </form>
       </div>
     );

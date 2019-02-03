@@ -18,7 +18,7 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-Cypress.on('window:before:load', (win) => {
+Cypress.on('window:before:load', win => {
   /* eslint-disable no-param-reassign */
   win.fetch = null;
   /* eslint-enable no-param-reassign */
