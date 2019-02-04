@@ -1,5 +1,10 @@
 describe('Register Page', () => {
   beforeEach(() => {
+    cy.visit('/roster', {
+      onBeforeLoad: win => {
+        win.sessionStorage.clear();
+      },
+    });
     cy.server();
     cy.route('POST', 'https://players-api.developer.alchemy.codes/api/user', 'fixture:createUser.json');
   });

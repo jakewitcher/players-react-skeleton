@@ -1,5 +1,10 @@
 describe('Delete Player', () => {
   beforeEach(() => {
+    cy.visit('/roster', {
+      onBeforeLoad: win => {
+        win.sessionStorage.clear();
+      },
+    });
     cy.login();
     cy.server();
     cy.route(
