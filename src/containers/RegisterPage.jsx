@@ -55,6 +55,7 @@ class RegisterPage extends Component {
             confirmPassword: '',
             error: '',
           });
+          this.props.onLogin();
           this.props.navigate('../roster');
         })
         .catch(error => {
@@ -122,8 +123,10 @@ export default RegisterPage;
 
 RegisterPage.propTypes = {
   navigate: PropTypes.func,
+  onLogin: PropTypes.func,
 };
 
 RegisterPage.defaultProps = {
   navigate: () => {},
+  onLogin: () => {},
 };

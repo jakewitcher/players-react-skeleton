@@ -43,6 +43,7 @@ class LoginPage extends Component {
           password: '',
           error: '',
         });
+        this.props.onLogin();
         this.props.navigate('../roster');
       })
       .catch(error => {
@@ -77,8 +78,10 @@ export default LoginPage;
 
 LoginPage.propTypes = {
   navigate: PropTypes.func,
+  onLogin: PropTypes.func,
 };
 
 LoginPage.defaultProps = {
   navigate: () => {},
+  onLogin: () => {},
 };

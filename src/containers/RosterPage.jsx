@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Button from '../components/Button';
 import Roster from '../components/Roster';
@@ -68,6 +69,7 @@ class RosterPage extends Component {
           roster={this.state.roster}
           error={this.state.error}
           removePlayer={this.handleDeletePlayer}
+          onLogout={this.props.onLogout}
         />
         <Button page="../player/new" />
       </div>
@@ -76,3 +78,11 @@ class RosterPage extends Component {
 }
 
 export default RosterPage;
+
+RosterPage.propTypes = {
+  onLogout: PropTypes.func,
+};
+
+RosterPage.defaultProps = {
+  onLogout: () => {},
+};
