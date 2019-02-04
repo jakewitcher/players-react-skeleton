@@ -27,7 +27,7 @@ export default Player;
 Player.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  rating: PropTypes.number,
+  rating: PropTypes.string,
   handedness: PropTypes.string,
   id: PropTypes.string,
   removePlayer: PropTypes.func,
@@ -36,7 +36,7 @@ Player.propTypes = {
 Player.defaultProps = {
   firstName: '',
   lastName: '',
-  rating: 0,
+  rating: '',
   handedness: '',
   id: '',
   removePlayer: () => {},

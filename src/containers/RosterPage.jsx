@@ -12,10 +12,15 @@ class RosterPage extends Component {
       error: '',
     };
     this.handleDeletePlayer = this.handleDeletePlayer.bind(this);
+    this.setRoster = this.setRoster.bind(this);
   }
 
   componentDidMount() {
     const token = sessionStorage.getItem('token');
+    this.setRoster(token);
+  }
+
+  setRoster(token) {
     axios({
       method: 'get',
       url: `${url}/players`,
@@ -44,24 +49,7 @@ class RosterPage extends Component {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(() => {
-        axios({
-          method: 'get',
-          url: `${url}/players`,
-          headers: { Authorization: `Bearer ${token}` },
-        })
-          .then(response => {
-            this.setState({
-              roster: response.data.players,
-              error: '',
-            });
-          })
-          .catch(error => {
-            if (error) {
-              this.setState({
-                error: 'We\'re having trouble gathering up your players. This is either a problem with our servers or your internet connection. Please try again later.',
-              });
-            }
-          });
+        this.setRoster(token);
       })
       .catch(error => {
         if (error) {

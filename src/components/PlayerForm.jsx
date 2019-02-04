@@ -31,8 +31,8 @@ const PlayerForm = props => {
         <label htmlFor="handedness">
           Handedness
           <select id="handedness" value={handedness} name="handedness" onChange={handleInput}>
-            <option value="Left">Left</option>
-            <option value="Right">Right</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
           </select>
         </label>
         <input type="submit" id="create" value="Submit" />
@@ -46,7 +46,7 @@ export default PlayerForm;
 PlayerForm.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  rating: PropTypes.number,
+  rating: PropTypes.string,
   handedness: PropTypes.string,
   error: PropTypes.string,
   handleInput: PropTypes.func,
@@ -56,7 +56,7 @@ PlayerForm.propTypes = {
 PlayerForm.defaultProps = {
   firstName: '',
   lastName: '',
-  rating: null,
+  rating: '',
   handedness: '',
   error: '',
   handleInput: () => {},

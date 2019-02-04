@@ -12,8 +12,8 @@ class PlayerPage extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      rating: null,
-      handedness: 'Left',
+      rating: '',
+      handedness: 'left',
       error: '',
     };
     this.handleInput = this.handleInput.bind(this);
@@ -42,7 +42,7 @@ class PlayerPage extends Component {
       const data = JSON.stringify({
         first_name: formatName(this.state.firstName),
         last_name: formatName(this.state.lastName),
-        rating: parseInt(this.state.rating, 10),
+        rating: this.state.rating,
         handedness: this.state.handedness,
       });
       const token = sessionStorage.getItem('token');
@@ -56,7 +56,8 @@ class PlayerPage extends Component {
           this.setState({
             firstName: '',
             lastName: '',
-            handedness: 'Left',
+            rating: '',
+            handedness: 'left',
             error: '',
           });
           this.props.navigate('../../roster');
