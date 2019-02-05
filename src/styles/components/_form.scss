@@ -1,0 +1,43 @@
+.form {
+  background: $gray-2;
+  border: 1px solid $gray-3;
+  border-radius: $radius-2;
+  display: flex;
+  flex-direction: column;
+  margin: $size-4 0;
+  padding: $size-4 $size-4;
+}
+
+.form__title {
+  border-bottom: 2px solid $secondary-5;
+  color: $primary-5;
+  font-size: $size-5;
+  margin: 0 $size-8 $size-4 $size-8;
+  padding-bottom: $size-2;
+}
+
+.form__label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $size-4;
+}
+
+.form__label-name {
+  align-self: flex-start;
+  color: $gray-7;
+  font-size: $size-3;
+  font-weight: 700;
+  margin: $size-1;
+}
+
+.form__input {
+  border: 1px solid $gray-4;
+  border-radius: $radius-3;
+  outline: none;
+  padding: $size-1 $size-2;
+}
+
+.form__input:focus {
+  border: 1px solid $gray-6;
+  box-shadow: $shadow-input;
+}

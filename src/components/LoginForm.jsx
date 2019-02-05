@@ -11,18 +11,17 @@ const LoginForm = props => {
   } = props;
   return (
     <div>
-      <h2>Register form</h2>
       {!error || <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          Email
-          <input type="email" id="email" value={email} name="email" onChange={handleInput} placeholder="email" />
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="form__label" htmlFor="email">
+          <p className="form__label-name">Email</p>
+          <input className="form__input" type="email" id="email" value={email} name="email" onChange={handleInput} />
         </label>
-        <label htmlFor="password">
-          Password
-          <input type="password" id="password" value={password} name="password" onChange={handleInput} placeholder="password" />
+        <label className="form__label" htmlFor="password">
+          <p className="form__label-name">Password</p>
+          <input className="form__input" type="password" id="password" value={password} name="password" onChange={handleInput} />
         </label>
-        <input type="submit" id="login" value="Submit" />
+        <input className="button button--form-submit" type="submit" id="login" value="Submit" />
       </form>
     </div>
   );

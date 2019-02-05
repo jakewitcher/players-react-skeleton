@@ -13,29 +13,28 @@ const PlayerForm = props => {
   } = props;
   return (
     <div>
-      <h2>Register form</h2>
       {!error || <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">
-          First Name
-          <input type="text" id="firstName" value={firstName} name="firstName" onChange={handleInput} placeholder="first name" />
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="form__label" htmlFor="firstName">
+          <p className="form__label-name">First Name</p>
+          <input className="form__input" type="text" id="firstName" value={firstName} name="firstName" onChange={handleInput} />
         </label>
-        <label htmlFor="lastName">
-          Last Name
-          <input type="text" id="lastName" value={lastName} name="lastName" onChange={handleInput} placeholder="last name" />
+        <label className="form__label" htmlFor="lastName">
+          <p className="form__label-name">Last Name</p>
+          <input className="form__input" type="text" id="lastName" value={lastName} name="lastName" onChange={handleInput} />
         </label>
-        <label htmlFor="rating">
-          Rating
-          <input type="text" id="rating" value={rating} name="rating" onChange={handleInput} placeholder="rating" />
+        <label className="form__label" htmlFor="rating">
+          <p className="form__label-name">Rating</p>
+          <input className="form__input" type="text" id="rating" value={rating} name="rating" onChange={handleInput} />
         </label>
-        <label htmlFor="handedness">
-          Handedness
-          <select id="handedness" value={handedness} name="handedness" onChange={handleInput}>
+        <label className="form__label" htmlFor="handedness">
+          <p className="form__label-name">Handedness</p>
+          <select className="form__input" id="handedness" value={handedness} name="handedness" onChange={handleInput}>
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
         </label>
-        <input type="submit" id="create" value="Submit" />
+        <input className="button button--form-submit" type="submit" id="create" value="Submit" />
       </form>
     </div>
   );

@@ -60,15 +60,17 @@ class LoginPage extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Login page</h1>
-        <LoginForm
-          email={this.state.email}
-          password={this.state.password}
-          error={this.state.error}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="box-layout">
+        <div className="box-layout__box box-layout__box--form">
+          <h1 className="form__title">Login.</h1>
+          <LoginForm
+            email={this.state.email}
+            password={this.state.password}
+            error={this.state.error}
+            handleInput={this.handleInput}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       </div>
     );
   }

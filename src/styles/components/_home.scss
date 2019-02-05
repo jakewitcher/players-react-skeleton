@@ -1,0 +1,26 @@
+.home__title-box {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__title {
+  color: $primary-5;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+  font-size: $size-9;
+}
+
+.home__subtitle {
+  color: $primary-7;
+  margin: 0;
+  line-height: 1;
+  font-size: $size-4;
+}
+
+.home__links {
+  display: flex;
+  flex-direction: column;
+  margin: $size-4 0;
+}

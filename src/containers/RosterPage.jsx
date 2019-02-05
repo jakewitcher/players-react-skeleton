@@ -63,15 +63,17 @@ class RosterPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Roster page</h1>
-        <Roster
-          roster={this.state.roster}
-          error={this.state.error}
-          removePlayer={this.handleDeletePlayer}
-          onLogout={this.props.onLogout}
-        />
-        <Button page="../player/new" />
+      <div className="box-layout">
+        <div className="box-layout__box">
+          <h1>Roster.</h1>
+          <Roster
+            roster={this.state.roster}
+            error={this.state.error}
+            removePlayer={this.handleDeletePlayer}
+            onLogout={this.props.onLogout}
+          />
+          <Button page="../player/new" label="Create New" />
+        </div>
       </div>
     );
   }

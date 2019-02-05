@@ -3,12 +3,17 @@ import React from 'react';
 import Button from '../components/Button';
 
 const HomePage = () => (
-  <div>
-    <h1>Home page</h1>
-    <p>Register</p>
-    <Button page="register" />
-    <p>Login</p>
-    <Button page="login" />
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <div className="home__title-box">
+        <h1 className="home__title">Lawn Darts</h1>
+        <h2 className="home__subtitle">Fantasy League</h2>
+      </div>
+      <div className="home__links">
+        <Button page="login" label="Login" />
+        <Button page="register" label="Register" />
+      </div>
+    </div>
   </div>
 );
 

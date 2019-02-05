@@ -14,30 +14,29 @@ const RegisterForm = props => {
   } = props;
   return (
     <div>
-      <h2>Register form</h2>
       {!error || <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">
-          First Name
-          <input type="text" id="firstName" value={firstName} name="firstName" onChange={handleInput} placeholder="first name" />
+      <form className="form" onSubmit={handleSubmit}>
+        <label className="form__label" htmlFor="firstName">
+          <p className="form__label-name">First Name</p>
+          <input className="form__input" type="text" id="firstName" value={firstName} name="firstName" onChange={handleInput} />
         </label>
-        <label htmlFor="lastName">
-          Last Name
-          <input type="text" id="lastName" value={lastName} name="lastName" onChange={handleInput} placeholder="last name" />
+        <label className="form__label" htmlFor="lastName">
+          <p className="form__label-name">Last Name</p>
+          <input className="form__input" type="text" id="lastName" value={lastName} name="lastName" onChange={handleInput} />
         </label>
-        <label htmlFor="email">
-          Email
-          <input type="email" id="email" value={email} name="email" onChange={handleInput} placeholder="email" />
+        <label className="form__label" htmlFor="email">
+          <p className="form__label-name">Email</p>
+          <input className="form__input" type="email" id="email" value={email} name="email" onChange={handleInput} />
         </label>
-        <label htmlFor="password">
-          Password
-          <input type="password" id="password" value={password} name="password" onChange={handleInput} placeholder="password" />
+        <label className="form__label" htmlFor="password">
+          <p className="form__label-name">Password</p>
+          <input className="form__input" type="password" id="password" value={password} name="password" onChange={handleInput} />
         </label>
-        <label htmlFor="confirmPassword">
-          Confirm Password
-          <input type="password" id="confirmPassword" value={confirmPassword} name="confirmPassword" onChange={handleInput} placeholder="confirm password" />
+        <label className="form__label" htmlFor="confirmPassword">
+          <p className="form__label-name">Confirm Password</p>
+          <input className="form__input" type="password" id="confirmPassword" value={confirmPassword} name="confirmPassword" onChange={handleInput} />
         </label>
-        <input type="submit" id="register" value="Submit" />
+        <input className="button button--form-submit" type="submit" id="register" value="Submit" />
       </form>
     </div>
   );

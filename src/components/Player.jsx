@@ -27,7 +27,10 @@ export default Player;
 Player.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  rating: PropTypes.string,
+  rating: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   handedness: PropTypes.string,
   id: PropTypes.string,
   removePlayer: PropTypes.func,

@@ -102,18 +102,20 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Register page</h1>
-        <RegisterForm
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          email={this.state.email}
-          password={this.state.password}
-          confirmPassword={this.state.confirmPassword}
-          error={this.state.error}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="box-layout">
+        <div className="box-layout__box box-layout__box--form">
+          <h1 className="form__title">Register.</h1>
+          <RegisterForm
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            email={this.state.email}
+            password={this.state.password}
+            confirmPassword={this.state.confirmPassword}
+            error={this.state.error}
+            handleInput={this.handleInput}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,25 @@
+.box-layout {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.box-layout__box {
+  background: $white;
+  border-radius: $radius-2;
+  box-shadow: $shadow-3;
+  display: flex;
+  flex-direction: column;
+  padding: $size-6;
+  text-align: center;
+  width: $size-12;
+}
+
+.box-layout__box--form {
+  padding: $size-6 $size-4;
+  @media(min-width: $breakpoint-1) {
+    width: 32rem;
+  }
+}

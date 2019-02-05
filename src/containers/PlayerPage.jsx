@@ -92,17 +92,19 @@ class PlayerPage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Player page</h1>
-        <PlayerForm
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          rating={this.state.rating}
-          handedness={this.state.handedness}
-          error={this.state.error}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="box-layout">
+        <div className="box-layout__box">
+          <h1 className="form__title">New Player.</h1>
+          <PlayerForm
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            rating={this.state.rating}
+            handedness={this.state.handedness}
+            error={this.state.error}
+            handleInput={this.handleInput}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,17 @@
+html {
+  font-family: $font;
+  font-size: 62.5%;
+}
+
+body {
+  background: $gray-1;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
