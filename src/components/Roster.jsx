@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Player from './Player';
 
-const Roster = ({ roster, error, removePlayer }) => (
+const Roster = ({ roster, removePlayer }) => (
   <div className="roster">
-    {!error || <p>{error}</p>}
     {
       roster.length === 0 ||
       roster.map(player =>
@@ -25,11 +24,9 @@ export default Roster;
 
 Roster.propTypes = {
   roster: PropTypes.arrayOf(PropTypes.object),
-  error: PropTypes.string,
   removePlayer: PropTypes.func.isRequired,
 };
 
 Roster.defaultProps = {
   roster: [],
-  error: '',
 };

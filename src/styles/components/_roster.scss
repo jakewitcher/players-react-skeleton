@@ -4,3 +4,12 @@
   margin: $size-4 0;
   padding: $size-4 $size-4;
 }
+
+.roster--loading {
+  height: $size-12;
+}
+
+.roster--loading-text {
+  color: $gray-7;
+  font-size: $size-6;
+}

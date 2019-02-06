@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Button from '../components/Button';
 import Header from '../components/Header';
-import Roster from '../components/Roster';
+import RosterBranch from '../components/RosterBranch';
 import url from '../utils/const';
 
 class RosterPage extends Component {
@@ -12,6 +12,7 @@ class RosterPage extends Component {
     this.state = {
       roster: [],
       error: '',
+      loading: true,
     };
     this.handleDeletePlayer = this.handleDeletePlayer.bind(this);
     this.setRoster = this.setRoster.bind(this);
@@ -32,12 +33,14 @@ class RosterPage extends Component {
         this.setState({
           roster: response.data.players,
           error: '',
+          loading: false,
         });
       })
       .catch(error => {
         if (error) {
           this.setState({
             error: 'We\'re having trouble gathering up your players. This is either a problem with our servers or your internet connection. Please try again later.',
+            loading: false,
           });
         }
       });
@@ -68,9 +71,11 @@ class RosterPage extends Component {
         <div className="box-layout__box box-layout__box--roster">
           <Header onLogout={this.props.onLogout} username={this.props.username} />
           <h1 className="box-layout__title" >Roster.</h1>
-          <Roster
-            roster={this.state.roster}
+          {!this.state.error || <p>{this.state.error}</p>}
+          <RosterBranch
             error={this.state.error}
+            roster={this.state.roster}
+            loading={this.state.loading}
             removePlayer={this.handleDeletePlayer}
           />
           <Button page="../player/new" label="Create New" mod=" button--create" />
