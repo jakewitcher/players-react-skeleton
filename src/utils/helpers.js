@@ -1,12 +1,16 @@
 import validator from 'validator';
 
+function formatEmail(email) {
+  return email.trim().toLowerCase();
+}
+
 export function validateEmail(email) {
-  return validator.isEmail(email);
+  return validator.isEmail(formatEmail(email));
 }
 
 export function formatName(name) {
   const head = name.trim().slice(0, 1).toUpperCase();
-  const tail = name.trim().slice(1);
+  const tail = name.trim().slice(1).toLowerCase();
   return head.concat(tail);
 }
 
