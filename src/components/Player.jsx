@@ -37,7 +37,7 @@ Player.propTypes = {
   ]),
   handedness: PropTypes.string,
   id: PropTypes.string,
-  removePlayer: PropTypes.func,
+  removePlayer: PropTypes.func.isRequired,
 };
 
 Player.defaultProps = {
@@ -46,5 +46,4 @@ Player.defaultProps = {
   rating: '',
   handedness: '',
   id: '',
-  removePlayer: () => {},
 };

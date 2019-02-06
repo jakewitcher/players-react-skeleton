@@ -33,14 +33,12 @@ LoginForm.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
   error: PropTypes.string,
-  handleInput: PropTypes.func,
-  handleSubmit: PropTypes.func,
+  handleInput: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 LoginForm.defaultProps = {
   email: '',
   password: '',
   error: '',
-  handleInput: () => {},
-  handleSubmit: () => {},
 };

@@ -48,8 +48,8 @@ PlayerForm.propTypes = {
   rating: PropTypes.string,
   handedness: PropTypes.string,
   error: PropTypes.string,
-  handleInput: PropTypes.func,
-  handleSubmit: PropTypes.func,
+  handleInput: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 PlayerForm.defaultProps = {
@@ -58,6 +58,4 @@ PlayerForm.defaultProps = {
   rating: '',
   handedness: '',
   error: '',
-  handleInput: () => {},
-  handleSubmit: () => {},
 };

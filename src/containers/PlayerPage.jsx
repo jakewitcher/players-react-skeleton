@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import url from '../utils/const';
 import { formatName } from '../utils/helpers';
-
 import PlayerForm from '../components/PlayerForm';
 
 class PlayerPage extends Component {
@@ -113,9 +112,6 @@ class PlayerPage extends Component {
 export default PlayerPage;
 
 PlayerPage.propTypes = {
-  navigate: PropTypes.func,
+  navigate: PropTypes.func.isRequired,
 };
 
-PlayerPage.defaultProps = {
-  navigate: () => {},
-};

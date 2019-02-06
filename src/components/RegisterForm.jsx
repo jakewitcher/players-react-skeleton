@@ -51,8 +51,8 @@ RegisterForm.propTypes = {
   password: PropTypes.string,
   confirmPassword: PropTypes.string,
   error: PropTypes.string,
-  handleInput: PropTypes.func,
-  handleSubmit: PropTypes.func,
+  handleInput: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 RegisterForm.defaultProps = {
@@ -62,6 +62,4 @@ RegisterForm.defaultProps = {
   password: '',
   confirmPassword: '',
   error: '',
-  handleInput: () => {},
-  handleSubmit: () => {},
 };

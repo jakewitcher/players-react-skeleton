@@ -70,3 +70,16 @@
 .button--create:focus {
   background: $primary-4;
 }
+
+.button--home {
+  align-self: center;
+  background: $gray-2;
+  border: none;
+  color: $gray-7;
+  padding: $size-3 $size-5;
+}
+
+.button--home:hover,
+.button--home:focus {
+  background: $white;
+}

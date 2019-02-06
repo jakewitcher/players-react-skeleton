@@ -1,0 +1,9 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+}
+
+.not-found__title {
+  color: $white;
+  font-size: $size-6;
+}
