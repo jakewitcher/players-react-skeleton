@@ -15,14 +15,16 @@ class AppRouter extends Component {
     super(props);
     this.state = {
       isAuthenticated: typeof sessionStorage.getItem('token') === 'string' && validator.isJWT(sessionStorage.getItem('token')),
+      username: sessionStorage.getItem('username') || '',
     };
     this.onLogin = this.onLogin.bind(this);
     this.onLogout = this.onLogout.bind(this);
   }
 
-  onLogin() {
+  onLogin(username) {
     this.setState({
       isAuthenticated: true,
+      username,
     });
   }
 
@@ -30,6 +32,7 @@ class AppRouter extends Component {
     sessionStorage.removeItem('token');
     this.setState({
       isAuthenticated: false,
+      username: '',
     });
   }
 
@@ -40,7 +43,7 @@ class AppRouter extends Component {
           <PublicRoute path="/" component={HomePage} isAuthenticated={this.state.isAuthenticated} />
           <PublicRoute path="register" component={RegisterPage} isAuthenticated={this.state.isAuthenticated} onLogin={this.onLogin} />
           <PublicRoute path="login" component={LoginPage} isAuthenticated={this.state.isAuthenticated} onLogin={this.onLogin} />
-          <PrivateRoute path="roster" component={RosterPage} isAuthenticated={this.state.isAuthenticated} onLogout={this.onLogout} />
+          <PrivateRoute path="roster" component={RosterPage} isAuthenticated={this.state.isAuthenticated} username={this.state.username} onLogout={this.onLogout} />
           <PrivateRoute path="player/new" component={PlayerPage} isAuthenticated={this.state.isAuthenticated} />
           <NotFoundPage default />
         </Router>

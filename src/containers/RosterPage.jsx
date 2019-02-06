@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Button from '../components/Button';
+import Header from '../components/Header';
 import Roster from '../components/Roster';
 import url from '../utils/const';
 
@@ -64,15 +65,15 @@ class RosterPage extends Component {
   render() {
     return (
       <div className="box-layout">
-        <div className="box-layout__box">
-          <h1>Roster.</h1>
+        <div className="box-layout__box box-layout__box--roster">
+          <Header onLogout={this.props.onLogout} username={this.props.username} />
+          <h1 className="box-layout__title" >Roster.</h1>
           <Roster
             roster={this.state.roster}
             error={this.state.error}
             removePlayer={this.handleDeletePlayer}
-            onLogout={this.props.onLogout}
           />
-          <Button page="../player/new" label="Create New" />
+          <Button page="../player/new" label="Create New" mod=" button--create" />
         </div>
       </div>
     );
@@ -82,9 +83,11 @@ class RosterPage extends Component {
 export default RosterPage;
 
 RosterPage.propTypes = {
-  onLogout: PropTypes.func,
+  onLogout: PropTypes.func.isRequired,
+  username: PropTypes.string,
 };
 
 RosterPage.defaultProps = {
-  onLogout: () => {},
+  username: '',
 };
+

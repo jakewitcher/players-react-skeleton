@@ -14,7 +14,7 @@ const RegisterForm = props => {
   } = props;
   return (
     <div>
-      {!error || <p>{error}</p>}
+      {!error || <p className="error">{error}</p>}
       <form className="form" onSubmit={handleSubmit}>
         <label className="form__label" htmlFor="firstName">
           <p className="form__label-name">First Name</p>

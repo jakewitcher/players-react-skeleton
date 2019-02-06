@@ -2,7 +2,7 @@
   background: $white;
   border: 2px solid $secondary-4;
   border-radius: $radius-3;
-  color: $secondary-9;
+  color: $secondary-7;
   font-size: $size-4;
   font-weight: 700;
   margin: $size-1;
@@ -25,5 +25,48 @@
 
 .button--form-submit:hover,
 .button--form-submit:focus {
+  background: $primary-4;
+}
+
+.button--logout {
+  background: $primary-1;
+  border: none;
+  color: $primary-8;
+  font-size: $size-3;
+  font-weight: 400;
+  margin: 0;
+  padding: $size-2;
+}
+
+.button--logout:hover,
+.button--logout:focus {
+  background: $primary-1;
+  font-weight: 700;
+}
+
+.button--delete {
+  border: none;
+  color: $stop-7;
+  font-size: $size-3;
+  font-weight: 400;
+  margin: $size-1;
+  padding: $size-2;
+}
+
+.button--delete:hover,
+.button--delete:focus {
+  background: $stop-1;
+}
+
+.button--create {
+  align-self: center;
+  background: $primary-5;
+  border: 1px solid $primary-5;
+  color: $white;
+  padding: $size-3 $size-5;
+}
+
+.button--create:hover,
+.button--create:focus {
   background: $primary-4;
 }

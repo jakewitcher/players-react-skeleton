@@ -37,13 +37,15 @@ class LoginPage extends Component {
       headers: { 'Content-Type': 'application/json' },
     })
       .then(response => {
+        const username = `${response.data.user.first_name} ${response.data.user.last_name}`;
         sessionStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('username', username);
         this.setState({
           email: '',
           password: '',
           error: '',
         });
-        this.props.onLogin();
+        this.props.onLogin(username);
         this.props.navigate('../roster');
       })
       .catch(error => {
@@ -62,7 +64,7 @@ class LoginPage extends Component {
     return (
       <div className="box-layout">
         <div className="box-layout__box box-layout__box--form">
-          <h1 className="form__title">Login.</h1>
+          <h1 className="box-layout__title">Login.</h1>
           <LoginForm
             email={this.state.email}
             password={this.state.password}
@@ -79,11 +81,6 @@ class LoginPage extends Component {
 export default LoginPage;
 
 LoginPage.propTypes = {
-  navigate: PropTypes.func,
-  onLogin: PropTypes.func,
-};
-
-LoginPage.defaultProps = {
-  navigate: () => {},
-  onLogin: () => {},
+  navigate: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired,
 };

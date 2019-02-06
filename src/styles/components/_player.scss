@@ -1,0 +1,29 @@
+.player {
+  border-top: 1px solid $gray-2;
+  display: flex;
+  justify-content: space-between;
+  margin: $size-2;
+  padding: 0 $size-2;
+}
+
+.player__data {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $size-1;
+}
+
+.player__name {
+  color: $gray-7;
+  font-size: $size-4;
+  font-weight: 700;
+  line-height: 1;
+  margin: $size-2 0;
+  padding: 0;
+}
+
+.player__stats {
+  color: $gray-5;
+  font-size: $size-3;
+  font-weight: 400;
+}

@@ -4,8 +4,14 @@ html {
 }
 
 body {
-  background: $gray-4;
+  background: $gray-7;
   margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 button {

@@ -46,7 +46,9 @@ class RegisterPage extends Component {
         headers: { 'Content-Type': 'application/json' },
       })
         .then(response => {
+          const username = `${response.data.user.first_name} ${response.data.user.last_name}`;
           sessionStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('username', username);
           this.setState({
             firstName: '',
             lastName: '',
@@ -55,7 +57,7 @@ class RegisterPage extends Component {
             confirmPassword: '',
             error: '',
           });
-          this.props.onLogin();
+          this.props.onLogin(username);
           this.props.navigate('../roster');
         })
         .catch(error => {
@@ -104,7 +106,7 @@ class RegisterPage extends Component {
     return (
       <div className="box-layout">
         <div className="box-layout__box box-layout__box--form">
-          <h1 className="form__title">Register.</h1>
+          <h1 className="box-layout__title">Register.</h1>
           <RegisterForm
             firstName={this.state.firstName}
             lastName={this.state.lastName}
@@ -124,11 +126,6 @@ class RegisterPage extends Component {
 export default RegisterPage;
 
 RegisterPage.propTypes = {
-  navigate: PropTypes.func,
-  onLogin: PropTypes.func,
-};
-
-RegisterPage.defaultProps = {
-  navigate: () => {},
-  onLogin: () => {},
+  navigate: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired,
 };

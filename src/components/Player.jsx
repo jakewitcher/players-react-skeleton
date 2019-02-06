@@ -11,13 +11,17 @@ const Player = props => {
     id,
   } = props;
   return (
-    <div>
-      <p>{`${firstName} ${lastName}`}</p>
-      <ul>
-        <li>{`Rating: ${rating}`}</li>
-        <li>{`${handedness} handed`}</li>
-      </ul>
-      <button className="delete" onClick={() => removePlayer(id)}>Delete</button>
+    <div className="player">
+      <div className="player__data">
+        <p className="player__name">{`${firstName} ${lastName}`}</p>
+        <ul>
+          <li className="player__stats">{`Rating: ${rating}`}</li>
+          <li className="player__stats">{`${handedness} handed`}</li>
+        </ul>
+      </div>
+      <div>
+        <button className="delete button button--delete" onClick={() => removePlayer(id)}>Delete</button>
+      </div>
     </div>
   );
 };

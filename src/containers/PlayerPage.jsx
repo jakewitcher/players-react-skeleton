@@ -94,7 +94,7 @@ class PlayerPage extends Component {
     return (
       <div className="box-layout">
         <div className="box-layout__box">
-          <h1 className="form__title">New Player.</h1>
+          <h1 className="box-layout__title">New Player.</h1>
           <PlayerForm
             firstName={this.state.firstName}
             lastName={this.state.lastName}

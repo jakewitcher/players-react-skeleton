@@ -7,11 +7,9 @@ const Roster = props => {
     roster,
     error,
     removePlayer,
-    onLogout,
   } = props;
   return (
-    <div>
-      <button onClick={onLogout}>Logout</button>
+    <div className="roster">
       {!error || <p>{error}</p>}
       {
         roster.length === 0 ||
@@ -36,12 +34,10 @@ Roster.propTypes = {
   roster: PropTypes.arrayOf(PropTypes.object),
   error: PropTypes.string,
   removePlayer: PropTypes.func,
-  onLogout: PropTypes.func,
 };
 
 Roster.defaultProps = {
   roster: [],
   error: '',
   removePlayer: () => {},
-  onLogout: () => {},
 };

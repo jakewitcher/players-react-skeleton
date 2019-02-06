@@ -1,0 +1,16 @@
+.header {
+  background: $primary-1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $size-6;
+  padding: 0 $size-4;
+}
+
+.header__username {
+  color: $primary-6;
+  font-size: $size-3;
+  font-weight: 700;
+  line-height: 1;
+  margin: none;
+  padding: 0 $size-2;
+}
