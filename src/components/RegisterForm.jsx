@@ -26,7 +26,7 @@ const RegisterForm = props => {
         </label>
         <label className="form__label" htmlFor="email">
           <p className="form__label-name">Email</p>
-          <input className="form__input" type="email" id="email" value={email} name="email" onChange={handleInput} />
+          <input className="form__input" type="text" id="email" value={email} name="email" onChange={handleInput} />
         </label>
         <label className="form__label" htmlFor="password">
           <p className="form__label-name">Password</p>

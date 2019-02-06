@@ -67,7 +67,7 @@ class RegisterPage extends Component {
             });
           } else {
             this.setState({
-              error: 'We\'re having trouble creating your account. This is either a problem with our servers or your internet connection. Please try again later.',
+              error: 'We\'re having trouble creating your account. Please try again later.',
             });
           }
         });

@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "error": {
+      "status_code": 401,
+      "message": "Email or password not found",
+      "code": "Unauthorized"
+  }
+}

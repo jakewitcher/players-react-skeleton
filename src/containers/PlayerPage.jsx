@@ -64,7 +64,7 @@ class PlayerPage extends Component {
         .catch(error => {
           if (error) {
             this.setState({
-              error: 'We\'re having trouble creating a new player. This is either a problem with our servers or your internet connection. Please try again later.',
+              error: 'We\'re having trouble creating a new player. Please try again later.',
             });
           }
         });

@@ -24,3 +24,16 @@ Cypress.Commands.add('login', () => {
   cy.get('#password').type('abc123');
   cy.get('#login').click();
 });
+
+Cypress.Commands.add('invalidLogin', () => {
+  cy.server();
+  cy.route(
+    'POST',
+    'https://players-api.developer.alchemy.codes/api/login',
+    'fixture:invalid-login.json',
+  );
+  cy.visit('/login');
+  cy.get('#email').type('billybob@example.com');
+  cy.get('#password').type('abc123');
+  cy.get('#login').click();
+});

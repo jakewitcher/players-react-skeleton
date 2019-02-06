@@ -39,7 +39,7 @@ class RosterPage extends Component {
       .catch(error => {
         if (error) {
           this.setState({
-            error: 'We\'re having trouble gathering up your players. This is either a problem with our servers or your internet connection. Please try again later.',
+            error: 'We\'re having trouble gathering up your players. Please try again later.',
             loading: false,
           });
         }
@@ -59,7 +59,7 @@ class RosterPage extends Component {
       .catch(error => {
         if (error) {
           this.setState({
-            error: 'We\'re having trouble deleting your player. This is either a problem with our servers or your internet connection. Please try again later.',
+            error: 'We\'re having trouble deleting your player. Please try again later.',
           });
         }
       });

@@ -20,7 +20,7 @@ describe('Add player page', () => {
     cy.contains('Handedness');
   });
 
-  it('Accepts valid email and password', () => {
+  it('Accepts valid player information', () => {
     cy.visit('/player/new');
     cy.get('#firstName').type('Tom');
     cy.get('#lastName').type('Riddle');
@@ -29,5 +29,22 @@ describe('Add player page', () => {
     cy.get('#create').click();
     cy.url().should('eq', 'http://localhost:3000/roster');
     cy.contains('Tom');
+  });
+
+  it('Requires a first and last name', () => {
+    cy.visit('/player/new');
+    cy.get('#rating').type('10');
+    cy.get('#handedness').select('Right');
+    cy.get('#create').click();
+    cy.contains('Please enter both a first and last name');
+  });
+
+  it('Requires a rating', () => {
+    cy.visit('/player/new');
+    cy.get('#firstName').type('Tom');
+    cy.get('#lastName').type('Riddle');
+    cy.get('#handedness').select('Right');
+    cy.get('#create').click();
+    cy.contains('Please enter a rating');
   });
 });
