@@ -6,10 +6,9 @@
 }
 
 .roster--loading {
+  align-items: center;
+  display: flex;
   height: $size-12;
+  justify-content: center;
 }
 
-.roster--loading-text {
-  color: $gray-7;
-  font-size: $size-6;
-}

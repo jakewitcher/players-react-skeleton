@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Loading = () => (
+  /* eslint-disable */
   <div className="roster roster--loading">
-    <h1 className="roster--loading-text">Loading...</h1>
+    <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
   </div>
+  /* eslint-disable */
 );
 
 export default Loading;
