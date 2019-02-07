@@ -1,15 +1,14 @@
 describe('Add player page', () => {
   beforeEach(() => {
-    cy.visit('/roster', {
-      onBeforeLoad: win => {
-        win.sessionStorage.clear();
-      },
-    });
     cy.login();
     cy.server();
     // Cypress routes are one time use
     cy.route('POST', 'https://players-api.developer.alchemy.codes/api/players', 'fixture:createPlayer.json');
     cy.route('GET', 'https://players-api.developer.alchemy.codes/api/players', 'fixture:getPlayers.json');
+  });
+
+  afterEach(() => {
+    cy.logout();
   });
 
   it('Contains player field labels', () => {

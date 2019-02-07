@@ -1,10 +1,5 @@
 describe('Delete Player', () => {
   beforeEach(() => {
-    cy.visit('/roster', {
-      onBeforeLoad: win => {
-        win.sessionStorage.clear();
-      },
-    });
     cy.login();
     cy.server();
     cy.route(
@@ -13,6 +8,10 @@ describe('Delete Player', () => {
       'fixture:deletePlayer.json',
     );
     cy.route('GET', 'https://players-api.developer.alchemy.codes/api/players', 'fixture:getPlayersDeleted.json');
+  });
+
+  afterEach(() => {
+    cy.logout();
   });
 
   it('Will delete a player', () => {

@@ -25,6 +25,12 @@ Cypress.Commands.add('login', () => {
   cy.get('#login').click();
 });
 
+Cypress.Commands.add('logout', () => {
+  cy.server();
+  cy.visit('/roster');
+  cy.get('#logout').click();
+});
+
 Cypress.Commands.add('invalidLogin', () => {
   cy.server();
   cy.route(

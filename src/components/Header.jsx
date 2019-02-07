@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Header = ({ onLogout, username }) => (
   <div className="header">
     <p className="header__username">{username}</p>
-    <button className="button button--logout" onClick={onLogout}>Logout</button>
+    <button className="button button--logout" id="logout" onClick={onLogout}>Logout</button>
   </div>
 );
 

@@ -1,15 +1,15 @@
 describe('Register Page', () => {
   beforeEach(() => {
-    cy.visit('/roster', {
-      onBeforeLoad: win => {
-        win.sessionStorage.clear();
-      },
-    });
     cy.server();
     cy.route('POST', 'https://players-api.developer.alchemy.codes/api/user', 'fixture:createUser.json');
   });
 
   it('Contains email and password labels', () => {
+    cy.visit('/roster', {
+      onBeforeLoad: win => {
+        win.sessionStorage.clear();
+      },
+    });
     cy.visit('/register');
     cy.contains('First Name');
     cy.contains('Last Name');
@@ -29,6 +29,7 @@ describe('Register Page', () => {
     cy.get('#register').click();
     cy.url().should('eq', 'http://localhost:3000/roster');
     cy.contains('Roster');
+    cy.logout();
   });
 
   it('Requires a first and last name', () => {
