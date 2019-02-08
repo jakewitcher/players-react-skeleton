@@ -26,7 +26,6 @@ Cypress.Commands.add('login', () => {
 });
 
 Cypress.Commands.add('logout', () => {
-  cy.server();
   cy.visit('/roster');
   cy.get('#logout').click();
 });
@@ -43,3 +42,12 @@ Cypress.Commands.add('invalidLogin', () => {
   cy.get('#password').type('abc123');
   cy.get('#login').click();
 });
+
+Cypress.Commands.add('clearSession', () => {
+  cy.visit('/', {
+    onBeforeLoad: win => {
+      win.sessionStorage.clear();
+    },
+  });
+});
+
