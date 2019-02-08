@@ -92,7 +92,7 @@ class PlayerPage extends Component {
   render() {
     return (
       <div className="box-layout">
-        <div className="box-layout__box">
+        <div className="box-layout__box box-layout__box--form">
           <h1 className="box-layout__title">New Player.</h1>
           <PlayerForm
             firstName={this.state.firstName}
